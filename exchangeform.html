@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Currency Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    header a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 120px auto 20px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+
+    .exchange-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    label {
+      margin-bottom: 8px;
+    }
+
+    input,
+    select {
+      padding: 8px;
+      margin-bottom: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #1e1e1e;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Crypto Currency</h1>
+    <div>
+      <a href="#">About</a>
+      <a href="#">Login</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Crypto Currency Converter</h2>
+    <form class="exchange-form" id="currencyConverterForm">
+      <label for="country">Select Country:</label>
+      <select id="country" name="country">
+        <option value="USD">United States Dollar (USD)</option>
+        <option value="EUR">Euro (EUR)</option>
+        <option value="JPY">Japanese Yen (JPY)</option>
+        <option value="GBP">British Pound (GBP)</option>
+        <option value="AUD">Australian Dollar (AUD)</option>
+        <option value="CAD">Canadian Dollar (CAD)</option>
+        <option value="CNY">Chinese Yuan (CNY)</option>
+        <option value="INR">Indian Rupee (INR)</option>
+        <option value="BRL">Brazilian Real (BRL)</option>
+        <option value="RUB">Russian Ruble (RUB)</option>
+        <option value="MXN">Mexican Peso (MXN)</option>
+        <option value="KRW">South Korean Won (KRW)</option>
+        <option value="TRY">Turkish Lira (TRY)</option>
+        <option value="IDR">Indonesian Rupiah (IDR)</option>
+        <option value="ZAR">South African Rand (ZAR)</option>
+        <option value="HKD">Hong Kong Dollar (HKD)</option>
+        <option value="NOK">Norwegian Krone (NOK)</option>
+        <option value="SEK">Swedish Krona (SEK)</option>
+        <option value="CHF">Swiss Franc (CHF)</option>
+        <option value="NZD">New Zealand Dollar (NZD)</option>
+        <option value="SGD">Singapore Dollar (SGD)</option>
+        <option value="PLN">Polish Złoty (PLN)</option>
+        <option value="THB">Thai Baht (THB)</option>
+        <option value="DKK">Danish Krone (DKK)</option>
+        <option value="MYR">Malaysian Ringgit (MYR)</option>
+        <option value="HUF">Hungarian Forint (HUF)</option>
+        <option value="CZK">Czech Koruna (CZK)</option>
+        <option value="ILS">Israeli New Shekel (ILS)</option>
+        <option value="CLP">Chilean Peso (CLP)</option>
+        <option value="PHP">Philippine Peso (PHP)</option>
+        <option value="AED">United Arab Emirates Dirham (AED)</option>
+        <option value="SAR">Saudi Riyal (SAR)</option>
+        <option value="KWD">Kuwaiti Dinar (KWD)</option>
+        <option value="QAR">Qatari Riyal (QAR)</option>
+        <option value="EGP">Egyptian Pound (EGP)</option>
+        <option value="ARS">Argentine Peso (ARS)</option>
+        <option value="COP">Colombian Peso (COP)</option>
+        <option value="TWD">New Taiwan Dollar (TWD)</option>
+        <option value="VND">Vietnamese Đồng (VND)</option>
+        <option value="NGN">Nigerian Naira (NGN)</option>
+        <option value="UAH">Ukrainian Hryvnia (UAH)</option>
+        <option value="BDT">Bangladeshi Taka (BDT)</option>
+        <option value="IQD">Iraqi Dinar (IQD)</option>
+        <option value="KES">Kenyan Shilling (KES)</option>
+        <option value="ZMW">Zambian Kwacha (ZMW)</option>
+        <option value="UGX">Ugandan Shilling (UGX)</option>
+        <option value="PKR">Pakistani Rupee (PKR)</option>
+        <!-- Add more options as needed -->
+      </select>
+
+      <label for="province">Province:</label>
+      <select id="province" name="province">
+        <!-- Add options for different provinces -->
+        <!-- Add more options for Canadian provinces -->
+        <option value="quebec">Quebec</option>
+        <option value="alberta">Alberta</option>
+        <option value="british_columbia">British Columbia</option>
+        <option value="manitoba">Manitoba</option>
+        <option value="saskatchewan">Saskatchewan</option>
+        <option value="newfoundland_and_labrador">Newfoundland and Labrador</option>
+        <option value="new_brunswick">New Brunswick</option>
+        <option value="nova_scotia">Nova Scotia</option>
+        <option value="prince_edward_island">Prince Edward Island</option>
+        <option value="northwest_territories">Northwest Territories</option>
+        <option value="yukon">Yukon</option>
+        <option value="nunavut">Nunavut</option>
+
+        <!-- Add more options for US states -->
+        <option value="california">California</option>
+        <option value="new_york">New York</option>
+        <option value="texas">Texas</option>
+        <option value="florida">Florida</option>
+        <option value="illinois">Illinois</option>
+        <option value="georgia">Georgia</option>
+        <option value="arizona">Arizona</option>
+        <option value="colorado">Colorado</option>
+        <option value="washington">Washington</option>
+        <option value="massachusetts">Massachusetts</option>
+
+        <!-- Add more options for Australian states -->
+        <option value="new_south_wales">New South Wales</option>
+        <option value="victoria">Victoria</option>
+        <option value="queensland">Queensland</option>
+        <option value="western_australia">Western Australia</option>
+        <option value="south_australia">South Australia</option>
+        <option value="tasmania">Tasmania</option>
+        <option value="australian_capital_territory">Australian Capital Territory</option>
+        <option value="northern_territory">Northern Territory</option>
+
+        <!-- Add more options for Indian states -->
+        <option value="maharashtra">Maharashtra</option>
+        <option value="uttar_pradesh">Uttar Pradesh</option>
+        <option value="tamil_nadu">Tamil Nadu</option>
+        <option value="karnataka">Karnataka</option>
+        <option value="gujarat">Gujarat</option>
+        <option value="rajasthan">Rajasthan</option>
+        <option value="kerala">Kerala</option>
+        <option value="andhra_pradesh">Andhra Pradesh</option>
+        <option value="telangana">Telangana</option>
+
+        <!-- Add more options for US dollar (USD) -->
+        <option value="california">California</option>
+        <option value="new_york">New York</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Euro (EUR) -->
+        <option value="france">France</option>
+        <option value="germany">Germany</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Japanese Yen (JPY) -->
+        <option value="tokyo">Tokyo</option>
+        <option value="osaka">Osaka</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for British Pound (GBP) -->
+        <option value="england">England</option>
+        <option value="scotland">Scotland</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Australian Dollar (AUD) -->
+        <option value="sydney">Sydney</option>
+        <option value="melbourne">Melbourne</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Canadian Dollar (CAD) -->
+        <option value="toronto">Toronto</option>
+        <option value="vancouver">Vancouver</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Chinese Yuan (CNY) -->
+        <option value="beijing">Beijing</option>
+        <option value="shanghai">Shanghai</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Indian Rupee (INR) -->
+        <option value="mumbai">Mumbai</option>
+        <option value="delhi">Delhi</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Brazilian Real (BRL) -->
+        <option value="saopaulo">Sao Paulo</option>
+        <option value="riodejaneiro">Rio de Janeiro</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Russian Ruble (RUB) -->
+        <option value="moscow">Moscow</option>
+        <option value="stpetersburg">St. Petersburg</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Mexican Peso (MXN) -->
+        <option value="mexicocity">Mexico City</option>
+        <option value="monterrey">Monterrey</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for South Korean Won (KRW) -->
+        <option value="seoul">Seoul</option>
+        <option value="busan">Busan</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Turkish Lira (TRY) -->
+        <option value="istanbul">Istanbul</option>
+        <option value="ankara">Ankara</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Indonesian Rupiah (IDR) -->
+        <option value="jakarta">Jakarta</option>
+        <option value="surabaya">Surabaya</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for South African Rand (ZAR) -->
+        <option value="johannesburg">Johannesburg</option>
+        <option value="cape town">Cape Town</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Hong Kong Dollar (HKD) -->
+        <option value="hongkong">Hong Kong</option>
+        <option value="kowloon">Kowloon</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Norwegian Krone (NOK) -->
+        <option value="oslo">Oslo</option>
+        <option value="bergen">Bergen</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Swedish Krona (SEK) -->
+        <option value="stockholm">Stockholm</option>
+        <option value="gothenburg">Gothenburg</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Swiss Franc (CHF) -->
+        <option value="zurich">Zurich</option>
+        <option value="geneva">Geneva</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for New Zealand Dollar (NZD) -->
+        <option value="auckland">Auckland</option>
+        <option value="wellington">Wellington</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Singapore Dollar (SGD) -->
+        <option value="singapore">Singapore</option>
+        <option value="sentosa">Sentosa</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Polish Złoty (PLN) -->
+        <option value="warsaw">Warsaw</option>
+        <option value="krakow">Krakow</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Thai Baht (THB) -->
+        <option value="bangkok">Bangkok</option>
+        <option value="chiangmai">Chiang Mai</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Danish Krone (DKK) -->
+        <option value="copenhagen">Copenhagen</option>
+        <option value="aarhus">Aarhus</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Malaysian Ringgit (MYR) -->
+        <option value="kualalumpur">Kuala Lumpur</option>
+        <option value="penang">Penang</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Hungarian Forint (HUF) -->
+        <option value="budapest">Budapest</option>
+        <option value="debrecen">Debrecen</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Czech Koruna (CZK) -->
+        <option value="prague">Prague</option>
+        <option value="brno">Brno</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Israeli New Shekel (ILS) -->
+        <option value="telaviv">Tel Aviv</option>
+        <option value="jerusalem">Jerusalem</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Chilean Peso (CLP) -->
+        <option value="santiago">Santiago</option>
+        <option value="valparaiso">Valparaiso</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Philippine Peso (PHP) -->
+        <option value="manila">Manila</option>
+        <option value="quezoncity">Quezon City</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for UAE Dirham (AED) -->
+        <option value="dubai">Dubai</option>
+        <option value="abudhabi">Abu Dhabi</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Saudi Riyal (SAR) -->
+        <option value="riyadh">Riyadh</option>
+        <option value="jeddah">Jeddah</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Kuwaiti Dinar (KWD) -->
+        <option value="kuwaitcity">Kuwait City</option>
+        <option value="hawalli">Hawalli</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Qatari Riyal (QAR) -->
+        <option value="doha">Doha</option>
+        <option value="alrayyan">Al Rayyan</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Egyptian Pound (EGP) -->
+        <option value="cairo">Cairo</option>
+        <option value="giza">Giza</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Argentine Peso (ARS) -->
+        <option value="buenosaires">Buenos Aires</option>
+        <option value="cordoba">Cordoba</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Colombian Peso (COP) -->
+        <option value="bogota">Bogota</option>
+        <option value="medellin">Medellin</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for New Taiwan Dollar (TWD) -->
+        <option value="taipei">Taipei</option>
+        <option value="kaohsiung">Kaohsiung</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Vietnamese Đồng (VND) -->
+        <option value="hanoi">Hanoi</option>
+        <option value="hochiminhcity">Ho Chi Minh City</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Nigerian Naira (NGN) -->
+        <option value="lagos">Lagos</option>
+        <option value="abuja">Abuja</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Ukrainian Hryvnia (UAH) -->
+        <option value="kyiv">Kyiv</option>
+        <option value="kharkiv">Kharkiv</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Bangladeshi Taka (BDT) -->
+        <option value="dhaka">Dhaka</option>
+        <option value="chittagong">Chittagong</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Iraqi Dinar (IQD) -->
+        <option value="baghdad">Baghdad</option>
+        <option value="basra">Basra</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Kenyan Shilling (KES) -->
+        <option value="nairobi">Nairobi</option>
+        <option value="mombasa">Mombasa</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Zambian Kwacha (ZMW) -->
+        <option value="lusaka">Lusaka</option>
+        <option value="ndola">Ndola</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Ugandan Shilling (UGX) -->
+        <option value="kampala">Kampala</option>
+        <option value="entebbe">Entebbe</option>
+        <!-- Add more options as needed -->
+
+        <!-- Add more options for Pakistani Rupee (PKR) -->
+        <option value="karachi">Karachi</option>
+        <option value="lahore">Lahore</option>
+        <!-- Add more options as needed -->
+      </select>
+
+      <label for="region">Region:</label>
+      <select id="region" name="region">
+        <!-- Add options for different regions -->
+        <option value="Northeast">Northeast</option>
+        <option value="Southeast">Southeast</option>
+        <option value="Midwest">Midwest</option>
+        <option value="Southwest">Southwest</option>
+        <option value="West">West</option>
+
+        <option value="Northern Europe">Northern Europe</option>
+        <option value="Southern Europe">Southern Europe</option>
+        <option value="Western Europe">Western Europe</option>
+        <option value="Eastern Europe">Eastern Europe</option>
+        <option value="Central Europe">Central Europe</option>
+
+        <option value="Hokkaido">Hokkaido</option>
+        <option value="Tohoku">Tohoku</option>
+        <option value="Kanto">Kanto</option>
+        <option value="Chubu">Chubu</option>
+        <option value="Kansai">Kansai</option>
+
+        <option value="England">England</option>
+        <option value="Scotland">Scotland</option>
+        <option value="Wales">Wales</option>
+        <option value="Northern Ireland">Northern Ireland</option>
+        <option value="Isle of Man">Isle of Man</option>
+
+        <option value="New South Wales">New South Wales</option>
+        <option value="Victoria">Victoria</option>
+        <option value="Queensland">KanQueenslandto</option>
+        <option value="Western Australia">Western Australia</option>
+        <option value="South Australia">South Australia</option>
+
+        <option value="Ontario">Ontario</option>
+        <option value="Quebec">Quebec</option>
+        <option value="British Columbia">British Columbia</option>
+        <option value="Alberta">Alberta</option>
+        <option value="Kansai">Manitoba</option>
+
+        <option value="North China">North China</option>
+        <option value="Northeast China">Northeast China</option>
+        <option value="East China">East China</option>
+        <option value="South Central China">South Central China</option>
+        <option value="Southwest China">Southwest China</option>
+
+        <option value="North India">North India</option>
+        <option value="South India">South India</option>
+        <option value="East India">East India</option>
+        <option value="West India">West India</option>
+        <option value="Central India">Central India</option>
+
+        <option value="Southeast">Southeast</option>
+        <option value="South">South</option>
+        <option value="Central-West">Central-West</option>
+        <option value="North">North</option>
+        <option value="Northeast">Northeast</option>
+
+        <option value="Northwestern Federal District">Northwestern Federal District</option>
+        <option value="Central Federal District">Central Federal District</option>
+        <option value="Southern Federal District">Southern Federal District</option>
+        <option value="Volga Federal District">Volga Federal District</option>
+        <option value="Ural Federal District">Ural Federal District</option>
+
+        <option value="North">North</option>
+        <option value="Pacific">Pacific</option>
+        <option value="Gulf of Mexico">Gulf of Mexico</option>
+        <option value="Yucatan Peninsula">Yucatan Peninsula</option>
+        <option value="Central">Central</option>
+
+        <option value="Seoul Capital Area">Seoul Capital Area</option>
+        <option value="Chungcheong">Chungcheong</option>
+        <option value="Gyeongsang">Gyeongsang</option>
+        <option value="Jeolla">Jeolla</option>
+        <option value="Gangwon">Gangwon</option>
+
+        <option value="Marmara">Marmara</option>
+        <option value="Aegean">Aegean</option>
+        <option value="Black Sea">Black Sea</option>
+        <option value="Central Anatolia">Central Anatolia</option>
+        <option value="Eastern Anatolia">Eastern Anatolia</option>
+
+        <!-- Indonesian Rupiah (IDR) -->
+        <option value="Java">Java</option>
+        <option value="Sumatra">Sumatra</option>
+        <option value="Kalimantan">Kalimantan</option>
+        <option value="Sulawesi">Sulawesi</option>
+        <option value="Bali">Bali</option>
+
+        <!-- South African Rand (ZAR) -->
+        <option value="Gauteng">Gauteng</option>
+        <option value="Western Cape">Western Cape</option>
+        <option value="Eastern Cape">Eastern Cape</option>
+        <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+        <option value="Free State">Free State</option>
+
+        <!-- Hong Kong Dollar (HKD) -->
+        <option value="Hong Kong Island">Hong Kong Island</option>
+        <option value="Kowloon">Kowloon</option>
+        <option value="New Territories">New Territories</option>
+        <option value="Outlying Islands">Outlying Islands</option>
+
+        <!-- Norwegian Krone (NOK) -->
+        <option value="Eastern Norway">Eastern Norway</option>
+        <option value="Western Norway">Western Norway</option>
+        <option value="Trøndelag">Trøndelag</option>
+        <option value="Northern Norway">Northern Norway</option>
+
+        <!-- Swedish Krona (SEK) -->
+        <option value="North Sweden">North Sweden</option>
+        <option value="Middle Sweden">Middle Sweden</option>
+        <option value="South Sweden">South Sweden</option>
+
+        <!-- Swiss Franc (CHF) -->
+        <option value="German-speaking Switzerland">German-speaking Switzerland</option>
+        <option value="French-speaking Switzerland">French-speaking Switzerland</option>
+        <option value="Italian-speaking Switzerland">Italian-speaking Switzerland</option>
+
+        <!-- New Zealand Dollar (NZD) -->
+        <option value="North Island">North Island</option>
+        <option value="South Island">South Island</option>
+
+        <!-- Singapore Dollar (SGD) -->
+        <option value="Central Region">Central Region</option>
+        <option value="East Region">East Region</option>
+        <option value="North Region">North Region</option>
+        <option value="North-East Region">North-East Region</option>
+        <option value="West Region">West Region</option>
+
+        <!-- Polish Złoty (PLN) -->
+        <option value="Greater Poland">Greater Poland</option>
+        <option value="Lesser Poland">Lesser Poland</option>
+        <option value="Masovia">Masovia</option>
+        <option value="Silesia">Silesia</option>
+        <option value="Pomerania">Pomerania</option>
+
+        <!-- Thai Baht (THB) -->
+        <option value="Northern Thailand">Northern Thailand</option>
+        <option value="Northeastern Thailand">Northeastern Thailand</option>
+        <option value="Central Thailand">Central Thailand</option>
+        <option value="Southern Thailand">Southern Thailand</option>
+
+        <!-- Danish Krone (DKK) -->
+        <option value="Capital Region">Capital Region</option>
+        <option value="Region of Zealand">Region of Zealand</option>
+        <option value="Southern Denmark">Southern Denmark</option>
+        <option value="Central Denmark">Central Denmark</option>
+        <option value="North Denmark">North Denmark</option>
+
+        <!-- Malaysian Ringgit (MYR) -->
+        <option value="Peninsular Malaysia">Peninsular Malaysia</option>
+        <option value="East Malaysia">East Malaysia</option>
+
+        <!-- Hungarian Forint (HUF) -->
+        <option value="Central Hungary">Central Hungary</option>
+        <option value="Transdanubia">Transdanubia</option>
+        <option value="Great Plain and North">Great Plain and North</option>
+
+        <!-- Czech Koruna (CZK) -->
+        <option value="Bohemia">Bohemia</option>
+        <option value="Moravia-Silesia">Moravia-Silesia</option>
+
+        <!-- Israeli New Shekel (ILS) -->
+        <option value="Central District">Central District</option>
+        <option value="Tel Aviv District">Tel Aviv District</option>
+        <option value="Jerusalem District">Jerusalem District</option>
+        <option value="Northern District">Northern District</option>
+        <option value="Southern District">Southern District</option>
+
+        <!-- Chilean Peso (CLP) -->
+        <option value="Santiago Metropolitan Region">Santiago Metropolitan Region</option>
+        <option value="Valparaíso Region">Valparaíso Region</option>
+        <option value="Biobío Region">Biobío Region</option>
+        <option value="La Araucanía Region">La Araucanía Region</option>
+        <option value="O'Higgins Region">O'Higgins Region</option>
+
+        <!-- Philippine Peso (PHP) -->
+        <option value="Luzon">Luzon</option>
+        <option value="Visayas">Visayas</option>
+        <option value="Mindanao">Mindanao</option>
+
+        <!-- United Arab Emirates Dirham (AED) -->
+        <option value="Abu Dhabi">Abu Dhabi</option>
+        <option value="Dubai">Dubai</option>
+        <option value="Sharjah">Sharjah</option>
+        <option value="Ajman">Ajman</option>
+        <option value="Umm Al-Quwain">Umm Al-Quwain</option>
+
+        <!-- Saudi Riyal (SAR) -->
+        <option value="Riyadh Province">Riyadh Province</option>
+        <option value="Makkah Province">Makkah Province</option>
+        <option value="Eastern Province">Eastern Province</option>
+        <option value="Asir Province">Asir Province</option>
+        <option value="Medina Province">Medina Province</option>
+
+        <!-- Kuwaiti Dinar (KWD) -->
+        <option value="Capital Governorate">Capital Governorate</option>
+        <option value="Farwaniya Governorate">Farwaniya Governorate</option>
+        <option value="Hawalli Governorate">Hawalli Governorate</option>
+        <option value="Mubarak Al-Kabeer Governorate">Mubarak Al-Kabeer Governorate</option>
+        <option value="Jahra Governorate">Jahra Governorate</option>
+
+        <!-- Qatari Riyal (QAR) -->
+        <option value="Ad Dawhah">Ad Dawhah</option>
+        <option value="Al Rayyan">Al Rayyan</option>
+        <option value="Al Wakrah">Al Wakrah</option>
+        <option value="Al Khawr and Al Thakhira">Al Khawr and Al Thakhira</option>
+        <option value="Madinat ash Shamal">Madinat ash Shamal</option>
+
+        <!-- Egyptian Pound (EGP) -->
+        <option value="Cairo Governorate">Cairo Governorate</option>
+        <option value="Alexandria Governorate">Alexandria Governorate</option>
+        <option value="Giza Governorate">Giza Governorate</option>
+        <option value="Dakahlia Governorate">Dakahlia Governorate</option>
+        <option value="Minya Governorate">Minya Governorate</option>
+
+        <!-- Argentine Peso (ARS) -->
+        <option value="Buenos Aires Province">Buenos Aires Province</option>
+        <option value="Buenos Aires">Buenos Aires</option>
+        <option value="Córdoba Province">Córdoba Province</option>
+        <option value="Santa Fe Province">Santa Fe Province</option>
+        <option value="Mendoza Province">Mendoza Province</option>
+
+        <!-- Colombian Peso (COP) -->
+        <option value="Bogotá">Bogotá</option>
+        <option value="Antioquia">Antioquia</option>
+        <option value="Valle del Cauca">Valle del Cauca</option>
+        <option value="Atlántico">Atlántico</option>
+        <option value="Cundinamarca">Cundinamarca</option>
+
+        <!-- New Taiwan Dollar (TWD) -->
+        <option value="Northern Taiwan">Northern Taiwan</option>
+        <option value="Central Taiwan">Central Taiwan</option>
+        <option value="Southern Taiwan">Southern Taiwan</option>
+        <option value="Eastern Taiwan">Eastern Taiwan</option>
+
+        <!-- Vietnamese Đồng (VND) -->
+        <option value="Northern Vietnam">Northern Vietnam</option>
+        <option value="Central Vietnam">Central Vietnam</option>
+        <option value="Southern Vietnam">Southern Vietnam</option>
+
+        <!-- Nigerian Naira (NGN) -->
+        <option value="North Central Nigeria">North Central Nigeria</option>
+        <option value="North East Nigeria">North East Nigeria</option>
+        <option value="North West Nigeria">North West Nigeria</option>
+        <option value="South East Nigeria">South East Nigeria</option>
+        <option value="South West Nigeria">South West Nigeria</option>
+        
+        <!-- Ukrainian Hryvnia (UAH) -->
+        <option value="Kyiv">Kyiv</option>
+        <option value="Kharkiv">Kharkiv</option>
+        <option value="Odesa">Odesa</option>
+        <option value="Dnipropetrovsk">Dnipropetrovsk</option>
+        <option value="Lviv">Lviv</option>
+
+        <!-- Bangladeshi Taka (BDT) -->
+        <option value="Dhaka Division">Dhaka Division</option>
+        <option value="Chittagong Division">Chittagong Division</option>
+        <option value="Rajshahi Division">Rajshahi Division</option>
+        <option value="Khulna Division">Khulna Division</option>
+        <option value="Sylhet Division">Sylhet Division</option>
+
+        <!-- Iraqi Dinar (IQD) -->
+        <option value="Baghdad Governorate">Baghdad Governorate</option>
+        <option value="Basra Governorate">Basra Governorate</option>
+        <option value="Mosul Governorate">Mosul Governorate</option>
+        <option value="Sulaymaniyah Governorate">Sulaymaniyah Governorate</option>
+        <option value="Erbil Governorate">Erbil Governorate</option>
+
+        <!-- Kenyan Shilling (KES) -->
+        <option value="Nairobi County">Nairobi County</option>
+        <option value="Mombasa County">Mombasa County</option>
+        <option value="Nakuru County">Nakuru County</option>
+        <option value="Uasin Gishu County">Uasin Gishu County</option>
+        <option value="Kiambu County">Kiambu County</option>
+
+        <!-- Zambian Kwacha (ZMW) -->
+        <option value="Lusaka Province">Lusaka Province</option>
+        <option value="Copperbelt Province">Copperbelt Province</option>
+        <option value="Central Province">Central Province</option>
+        <option value="Northern Province">Northern Province</option>
+        <option value="Muchinga Province">Muchinga Province</option>
+
+        <!-- Ugandan Shilling (UGX) -->
+        <option value="Central Region">Central Region</option>
+        <option value="Eastern Region">Eastern Region</option>
+        <option value="Northern Region">Northern Region</option>
+        <option value="Western Region">Western Region</option>
+
+        <!-- Pakistani Rupee (PKR) -->
+        <option value="Punjab">Punjab</option>
+        <option value="Sindh">Sindh</option>
+        <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+        <option value="Balochistan">Balochistan</option>
+        <option value="Islamabad Capital Territory">Islamabad Capital Territory</option>
+
+        <!-- Vietnamese Đồng (VND) -->
+        <option value="Northern Vietnam">Northern Vietnam</option>
+        <option value="Central Vietnam">Central Vietnam</option>
+        <option value="Southern Vietnam">Southern Vietnam</option>
+
+        <!-- Nigerian Naira (NGN) -->
+        <option value="North Central Nigeria">North Central Nigeria</option>
+        <option value="North East Nigeria">North East Nigeria</option>
+        <option value="North West Nigeria">North West Nigeria</option>
+        <option value="South East Nigeria">South East Nigeria</option>
+        <option value="South West Nigeria">South West Nigeria</option>
+
+        <!-- Ukrainian Hryvnia (UAH) -->
+        <option value="Kyiv">Kyiv</option>
+        <option value="Kharkiv">Kharkiv</option>
+        <option value="Odesa">Odesa</option>
+        <option value="Dnipropetrovsk">Dnipropetrovsk</option>
+        <option value="Lviv">Lviv</option>
+
+
+      </select>
+
+      <label for="pickupLocation">Pickup Location:</label>
+      <select id="pickupLocation" name="pickupLocation">
+        <!-- Add options for different pickup locations -->
+        <option value="downtown">Downtown</option>
+        <option value="suburb">Suburb</option>
+        <option value="Downtown">Downtown</option>
+        <option value="City Center">City Center</option>
+        <option value="Financial District">Financial District</option>
+        <option value="Business Park">Business Park</option>
+        <option value="Shopping Mall">Shopping Mall</option>
+        <option value="Airport Terminal">Airport Terminal</option>
+        <option value="Train Station">Train Station</option>
+        <option value="Bus Stop">Bus Stop</option>
+        <option value="Residential Area">Residential Area</option>
+        <option value="Harbor">Harbor</option>
+        <option value="Beachfront">Beachfront</option>
+        <option value="Industrial Zone">Industrial Zone</option>
+        <option value="Technology Park">Technology Park</option>
+        <option value="Exhibition Center">Exhibition Center</option>
+        <option value="Sports Stadium">Sports Stadium</option>
+        <option value="Convention Center">Convention Center</option>
+        <option value="University Campus">University Campus</option>
+        <option value="Hospital">Hospital</option>
+        <option value="Park and Ride">Park and Ride</option>
+        <option value="Tourist Attraction">Tourist Attraction</option>
+        <option value="Historical Site">Historical Site</option>
+        <option value="Government Office">Government Office</option>
+        <option value="Entertainment District">Entertainment District</option>
+        <option value="Cultural Center">Cultural Center</option>
+        <option value="Suburb">Suburb</option>
+        <option value="Residential Complex">Residential Complex</option>
+        <option value="Waterfront">Waterfront</option>
+        <option value="Park Area">Park Area</option>
+        <option value="Gas Station">Gas Station</option>
+        <option value="Highway Rest Area">Highway Rest Area</option>
+        <option value="Forest Reserve">Forest Reserve</option>
+        <option value="Mountain Lodge">Mountain Lodge</option>
+        <option value="Research Facility">Research Facility</option>
+        <option value="Military Base">Military Base</option>
+        <option value="Nature Reserve">Nature Reserve</option>
+        <option value="Golf Course">Golf Course</option>
+        <option value="Amusement Park">Amusement Park</option>
+        <option value="Zoo">Zoo</option>
+        <option value="Resort Area">Resort Area</option>
+        <option value="Ski Resort">Ski Resort</option>
+        <option value="Marina">Marina</option>
+        <option value="Ferry Terminal">Ferry Terminal</option>
+        <option value="Cruise Port">Cruise Port</option>
+        <option value="Border Crossing">Border Crossing</option>
+        <option value="Film Studio">Film Studio</option>
+        <option value="Radio Station">Radio Station</option>
+        <option value="TV Studio">TV Studio</option>
+        <option value="Shopping Outlet">Shopping Outlet</option>
+        <option value="Theme Park">Theme Park</option>
+        <option value="Vineyard">Vineyard</option>
+        <!-- Add more options as needed -->
+      </select>
+
+      <label for="amount">Enter Amount:</label>
+      <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+
+      <label for="cadAmount">Amount in Canadian Dollars:</label>
+      <input type="text" id="cadAmount" name="cadAmount" placeholder="Amount in CAD" readonly>
+
+      <label for="equivalentAmount">Equivalent Amount:</label>
+      <input type="text" id="equivalentAmount" name="equivalentAmount" placeholder="Equivalent amount" readonly>
+
+      <button type="button" onclick="convertCurrency()">Convert</button>
+    </form>
+  </section>
+
+  <script>
+    function convertCurrency() {
+      const apiKey = 'YOUR_API_KEY'; // Replace with your API key
+      const country = document.getElementById('country').value;
+      const amount = document.getElementById('amount').value;
+
+      fetch(`https://open.er-api.com/v6/latest/${country}?apikey=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+          const exchangeRate = data.rates.CAD;
+          const cadAmount = (amount * exchangeRate).toFixed(2);
+          const equivalentAmount = (amount / exchangeRate).toFixed(2);
+
+          document.getElementById('cadAmount').value = cadAmount;
+          document.getElementById('equivalentAmount').value = equivalentAmount;
+        })
+        .catch(error => console.error('Error fetching exchange rates:', error));
+    }
+  </script>
+
+</body>
+</html>
