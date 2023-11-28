@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Crypto Trading Hub{% endblock %}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        header {
+            background-color: #3498db;
+            padding: 20px 0;
+            color: #ffffff;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3498db;
+            padding: 10px 20px;
+            color: #ffffff;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .cta-buttons a {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #ecf0f1;
+            border: 2px solid #ecf0f1;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta-buttons a.signup {
+    background-color: #3498db;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.cta-buttons a.login {
+    background-color: #00CC00;
+    border-color: #00CC00;
+    padding-right: 30px;
+    padding-left: 30px;
+    color: #ffffff;
+}
+
+.cta-buttons a:hover {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border-color: #ecf0f1;
+}
+
+
+        section {
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div>
+            <img src="logo.png" alt="Crypto Trading Hub Logo">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact Us</a>
+            <a href="{% url 'glossary' %}">Glossary</a>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="{% url 'register' %}" class="signup">Sign Up</a>
+            <a href="{% url 'my-login' %}" class="login">Login</a>
+        </div>
+    </nav>
+
+
+
+
+
+    <footer>
+        &copy; 2023 Crypto Trading Hub. All rights reserved.
+    </footer>
+</body>
+</html>
