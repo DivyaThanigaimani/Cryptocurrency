@@ -3,7 +3,9 @@ from decimal import Decimal, InvalidOperation
 import requests
 from django.shortcuts import render
 from .forms import ExchangeForm
-
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import SubscriptionForm
 
 def get_exchange_rate(base_currency, target_currency, api_key):
     url = f'https://open.er-api.com/v6/latest/{base_currency}?apikey={api_key}'

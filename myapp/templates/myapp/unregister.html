@@ -108,6 +108,34 @@
         </div>
     </section>
 
+    {% block content %}
+  <div class="container">
+    <!-- Other content on your landing page -->
+
+    <!-- Add a section for newsletter subscription -->
+    <section>
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with the latest news and trends in Forex/Crypto trading.</p>
+      <a href="{% url 'subscribe' %}">Subscribe Now</a>
+    </section>
+  </div>
+{% endblock %}
+
+
+    {% block content %}
+  <div class="container">
+    <!-- Other content on your landing page -->
+
+    <!-- Add a section for the contact form -->
+    <section>
+      <h2>Contact Us</h2>
+      <p>Have questions? Reach out to us using the form below.</p>
+      <a href="{% url 'contact_us' %}">Contact Us</a>
+    </section>
+  </div>
+{% endblock %}
+
+
     <footer>
         &copy; 2023 Crypto Trading Hub. All rights reserved.
     </footer>
