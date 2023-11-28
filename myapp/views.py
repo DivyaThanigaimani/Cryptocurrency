@@ -101,14 +101,11 @@ def contact_us(request):
     return render(request, 'contact_us.html', {'form': form})
 
 
+
 def glossary_view(request):
     glossary_terms = GlossaryTerm.objects.all()
-
-    context = {
-        'glossary_terms': glossary_terms,
-    }
-
-    return render(request, 'glossary.html', context)
+    context = {'glossary_terms': glossary_terms}
+    return render(request, 'myapp/glossary.html', context)
 
 
 

@@ -22,7 +22,7 @@ class ContactMessage(models.Model):
 
 
 class GlossaryTerm(models.Model):
-    term = models.CharField(max_length=50, unique=True)
+    term = models.CharField(max_length=255, unique=True)
     definition = models.TextField()
 
     def __str__(self):
