@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends 'base.html' %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,6 +89,7 @@
     </style>
 </head>
 <body>
+
     <header>
         <img src="logo.png" alt="Crypto Trading Hub Logo">
     </header>
@@ -100,20 +102,11 @@
         <a href="{% url 'glossary' %}">Glossary</a>
     </nav>
 
-    <section>
-        <h1>Welcome to Crypto Trading Hub</h1>
-        <p>Discover the world of cryptocurrency trading with our advanced platform. Trade securely and stay updated on the latest market trends.</p>
-        <div class="cta-buttons">
-            <button class="signup">Sign Up</button>
-            <button class="login">Login</button>
-        </div>
-    </section>
 
     {% block content %}
   <div class="container">
-    <!-- Other content on your landing page -->
-
-    <!-- Add a section for newsletter subscription -->
+    <h1>Welcome to Crypto Trading Hub</h1>
+      <p>Discover the world of cryptocurrency trading with our advanced platform. Trade securely and stay updated on the latest market trends.</p>
     <section>
       <h2>Subscribe to Our Newsletter</h2>
       <p>Stay updated with the latest news and trends in Forex/Crypto trading.</p>
@@ -127,7 +120,6 @@
     </section>
   </div>
 {% endblock %}
-
 
     <footer>
         &copy; 2023 Crypto Trading Hub. All rights reserved.
