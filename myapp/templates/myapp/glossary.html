@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency/FX Market Glossary</title>
+
+    <!-- Basic styling for demonstration purposes -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+            padding: 20px;
+        }
+
+        .card-title {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Cryptocurrency/FX Market Glossary</h2>
+
+        {% for term in glossary_terms %}
+            <div class="card">
+                <div class="card-title"><h3>{{ term.term }}</h3></div>
+                <p>{{ term.definition }}</p>
+            </div>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

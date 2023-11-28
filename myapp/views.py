@@ -10,6 +10,10 @@ from .forms import SubscriptionForm
 from django.contrib import messages
 from .forms import ContactForm
 
+# Glossary imports
+from django.shortcuts import render
+from .models import GlossaryTerm
+
 # - Authentication models and functions
 
 from django.contrib.auth.models import auth
@@ -95,6 +99,16 @@ def contact_us(request):
         form = ContactForm()
 
     return render(request, 'contact_us.html', {'form': form})
+
+
+def glossary_view(request):
+    glossary_terms = GlossaryTerm.objects.all()
+
+    context = {
+        'glossary_terms': glossary_terms,
+    }
+
+    return render(request, 'glossary.html', context)
 
 
 

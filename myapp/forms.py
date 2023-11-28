@@ -13,6 +13,11 @@ from django.forms.widgets import PasswordInput, TextInput
 from django import forms
 from .models import Subscription
 
+# Glossary imports
+from django import forms
+from .models import GlossaryTerm
+
+
 # - Create/Register a user (Model Form)
 
 class CreateUserForm(UserCreationForm):
@@ -50,4 +55,14 @@ class ContactForm(forms.ModelForm):
 
         widgets = {
             'message': forms.Textarea(attrs={'rows': 5}),
+        }
+
+
+class GlossaryTermForm(forms.ModelForm):
+    class Meta:
+        model = GlossaryTerm
+        fields = ['term', 'definition']
+
+        widgets = {
+            'definition': forms.Textarea(attrs={'rows': 5}),
         }
