@@ -1,0 +1,31 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+
+  <div class="container">
+    {% if success %}
+      <div class="alert alert-success" role="alert">
+        {{ success }}
+      </div>
+    {% endif %}
+    <h2>User Profile</h2>
+    <div class="float-left" style="margin-right: 20px;">
+      <!-- Display profile picture in a circular format -->
+      {% if user_profile.profile_image %}
+        <img src="{{ user_profile.profile_image.url }}" alt="Profile Image" class="rounded-circle" style="width: 150px; height: 150px;">
+      {% else %}
+        <img src="https://icon-library.com/images/free-avatar-icon/free-avatar-icon-10.jpg" alt="Profile Image" class="rounded-circle" style="width: 150px; height: 150px;">
+      {% endif %}
+
+      <br>
+      <a href="#" id="edit-profile"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile</a>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="overflow-hidden">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary mt-2">Update Profile</button>
+    </form>
+  </div>
+{% endblock %}
