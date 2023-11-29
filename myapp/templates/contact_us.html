@@ -10,10 +10,10 @@
 
 {% block content %}
 <div class="container">
-    <h2>{% if success_message %}Success{% else %}Contact Us{% endif %}</h2>
+    <h2 style="color: #ff8800;">{% if success_message %}Success{% else %}Contact Us{% endif %}</h2>
 
     {% if success_message %}
-        <div class="success-message">
+        <div class="success-message" style="margin-bottom: 30px;">
             {{ success_message }}
         </div>
     {% else %}

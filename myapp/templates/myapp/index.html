@@ -81,6 +81,57 @@
             color: #ecf0f1;
         }
 
+        .center-align {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+        section.why-choose-us {
+            padding: 50px 20px;
+        }
+
+        section.why-choose-us h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        section.why-choose-us ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        section.why-choose-us li {
+            color: #ffffff;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        section.get-started {
+            background-color: #3498db;
+            color: #ecf0f1;
+            padding: 50px 20px;
+        }
+
+        section.get-started h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        section.get-started p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+
+
+        section.get-started .cta-buttons button {
+            background-color: #ecf0f1;
+            color: #3498db;
+        }
+
         footer {
             background-color: #2c3e50;
             color: #ecf0f1;
@@ -91,7 +142,7 @@
 <body>
 
     <header>
-        <img src="logo.png" alt="Crypto Trading Hub Logo">
+        <img src="cdn.iconscout.com/icon/free/png-256/free-bitcoin-194-454886.png" alt="Crypto Trading Hub Logo">
     </header>
 
     <nav>
@@ -104,22 +155,83 @@
 
 
     {% block content %}
-  <div class="container">
-    <h1>Welcome to Crypto Trading Hub</h1>
-      <p>Discover the world of cryptocurrency trading with our advanced platform. Trade securely and stay updated on the latest market trends.</p>
-    <section>
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated with the latest news and trends in Forex/Crypto trading.</p>
-      <a href="{% url 'subscribe' %}">Subscribe Now</a>
-    </section>
+    <div class="container">
+        <h1 style="padding-top: 20px; color: #ff8800;">Welcome to Crypto Trading Hub</h1>
+        <p>Discover the world of cryptocurrency trading with our advanced platform.</p>
 
-    <section>
-      <h2>Contact Us</h2>
-      <p>Have questions? Reach out to us using the form below.</p>
-      <a href="{% url 'contact_us' %}">Contact Us</a>
-    </section>
-  </div>
-{% endblock %}
+
+        <!-- Why Choose Us Section -->
+
+<section class="why-choose-us" style="padding: 30px; border-radius: 8px; background-color: #ecf0f1; color: #ffffff;">
+    <h2 style="font-size: 28px; margin-bottom: 20px; color: #ff8800; margin-top: -5px;">Why Choose Us</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+        <div style="flex: 0 1 calc(45% - 8px); margin-bottom: 20px; background-color: #3498db; padding: 20px; border-radius: 8px;
+             transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.2)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+
+            <p style="font-size: 16px; line-height: 1.6; margin: 0;">Secure and reliable trading environment</p>
+
+        </div>
+
+        <div style="flex: 0 1 calc(45% - 8px); margin-bottom: 20px; background-color: #3498db; padding: 20px; border-radius: 8px;
+             transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.2)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+
+            <p style="font-size: 16px; line-height: 1.6; margin: 0;">Real-time market updates and analysis</p>
+
+        </div>
+
+        <div style="flex: 0 1 calc(45% - 8px); margin-bottom: 20px; background-color: #3498db; padding: 20px; border-radius: 8px;
+             transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.2)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+
+            <p style="font-size: 16px; line-height: 1.6; margin: 0;">User-friendly interface for seamless trading</p>
+
+        </div>
+
+        <div style="flex: 0 1 calc(45% - 8px); margin-bottom: 20px; background-color: #3498db; padding: 20px; border-radius: 8px;
+             transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.2)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+
+            <p style="font-size: 16px; line-height: 1.6; margin: 0;">Advanced charting tools for better analysis</p>
+
+        </div>
+
+        <div style="flex: 0 1 calc(45% - 8px); margin-bottom: 20px; background-color: #3498db; padding: 20px; border-radius: 8px;
+             transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.2)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+
+            <p style="font-size: 16px; line-height: 1.6; margin: 0;">Responsive customer support available 24/7</p>
+
+        </div>
+
+        <div style="flex: 0 1 calc(45% - 8px); margin-bottom: 20px; background-color: #3498db; padding: 20px; border-radius: 8px;
+             transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.2)';"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+
+            <p style="font-size: 16px; line-height: 1.6; margin: 0;">Competitive fees and transparent pricing</p>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+        <!-- Get Started Section -->
+        <section class="get-started center-align" style="background-color: #ff8800; color: #ffffff;">
+            <h2 style="margin-top: -5px;">Get Started Today</h2>
+            <p>Join thousands of traders who trust Crypto Trading Hub for their cryptocurrency transactions.</p>
+            <div class="cta-buttons" style="display: flex; justify-content: center;">
+            <a href="{% url 'register' %}" class="signup" style="border-color: #3498db;">Sign Up</a>
+            <a href="{% url 'my-login' %}" class="login">Login</a>
+        </div>
+        </section>
+    <div style="margin-bottom: 20px;"></div>
+    </div>
+    {% endblock %}
 
     <footer>
         &copy; 2023 Crypto Trading Hub. All rights reserved.

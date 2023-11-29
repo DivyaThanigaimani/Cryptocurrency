@@ -11,7 +11,6 @@ from .models import ContactMessage
 # Subscribe imports
 from django.forms.widgets import PasswordInput, TextInput
 from django import forms
-from .models import Subscription
 
 # Glossary imports
 from django import forms
@@ -37,14 +36,6 @@ class LoginForm(AuthenticationForm):
 
 
 
-# Subscribe form
-class SubscriptionForm(forms.ModelForm):
-    class Meta:
-        model = Subscription
-        fields = ['email']
-        widgets = {
-            'email': forms.EmailInput(attrs={'placeholder': 'Enter your email'}),
-        }
 
 
 #Contact Us form
