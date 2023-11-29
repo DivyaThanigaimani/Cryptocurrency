@@ -11,4 +11,5 @@ urlpatterns = [
     path('subscribe/', views.subscribe, name='subscribe'),
     path('contact_us/', views.contact_us, name='contact_us'),
     path('glossary/', glossary_view, name='glossary'),
+    path('payment-history/', views.payment_history, name='payment_history'),
 ]

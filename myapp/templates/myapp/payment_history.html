@@ -1,0 +1,35 @@
+{% extends 'myapp/dashboard.html' %}
+
+{% block content %}
+  <h2>Payment History</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Currency</th>
+        <th>Destination</th>
+        <th>Debited</th>
+        <th>Status</th>
+        <th>Exchangement</th>
+        <th>Pickup Location</th>
+        <th>Province</th>
+        <th>Region</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for payment in payment_history_data %}
+        <tr>
+          <td>{{ payment.name }}</td>
+          <td>{{ payment.currency }}</td>
+          <td>{{ payment.destination }}</td>
+          <td>{{ payment.debited }}</td>
+          <td>{{ payment.status }}</td>
+          <td>{{ payment.exchangement }}</td>
+          <td>{{ payment.pickup_location }}</td>
+          <td>{{ payment.province }}</td>
+          <td>{{ payment.region }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
