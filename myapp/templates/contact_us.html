@@ -3,33 +3,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Contact Us</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #ff8800;
+        }
+
+
+        label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+
+
+    </style>
 </head>
 <body>
 <h1>Contact Us</h1>
 
 {% block content %}
-<div class="container">
-    <h2>{% if success_message %}Success{% else %}Contact Us{% endif %}</h2>
+<div style="display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;">
+    <h2 style="color: #ff8800;">{% if success_message %}Success{% else %}Contact Us{% endif %}</h2>
 
     {% if success_message %}
-        <div class="success-message">
+        <div style = "margin-bottom: 30px;
+            padding: 15px;
+            background-color: #27ae60;
+            color: #ecf0f1;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 500px;">
             {{ success_message }}
         </div>
     {% else %}
-        <div class="contact-card">
+
+        <div style="background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin-top: 20px;">
             <p>Have questions? Reach out to us using the form below.</p>
 
 
-            <form method="post" action="{% url 'contact_us' %}">
+            <form method="post" action="{% url 'contact_us' %}" style=" display: flex; flex-direction: column;">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" style="margin-bottom: 30px;">Send Message</button>
+                <button type="submit" style=" padding: 15px 30px; font-size: 18px; cursor: pointer; border: none; border-radius: 5px; background-color: #3498db; color: #ffffff; transition: background-color 0.3s;">Send Message</button>
             </form>
         </div>
+        <div style="margin-bottom: 20px;"></div>
     {% endif %}
 
-    <div class="footer-space"></div>
+    <div style="height: 30px;"></div>
 </div>
 {% endblock %}
 

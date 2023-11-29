@@ -3,8 +3,7 @@ from . forms import CreateUserForm, LoginForm
 from django.contrib.auth.decorators import login_required
 from .models import Payment
 
-# Subscribe imports
-from .forms import SubscriptionForm
+
 
 # Contact Us imports
 from django.contrib import messages
@@ -71,21 +70,6 @@ def user_logout(request):
 def dashboard(request):
 
     return render(request, 'myapp/dashboard.html')
-
-
-
-def subscribe(request):
-    if request.method == 'POST':
-        form = SubscriptionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Thank you for subscribing!')
-            return redirect('landing_page')  # Replace 'landing_page' with the name of your landing page URL pattern
-    else:
-        form = SubscriptionForm()
-
-    return render(request, 'subscribe.html', {'form': form})
-
 
 
 
