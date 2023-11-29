@@ -1,4 +1,57 @@
 <html>
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
     <h1>This is the Dashboard Page</h1>
     <a href="{% url 'user-logout' %}"> Logout here </a>
+
+    <h2>Payment History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Currency Type</th>
+                <th>Status</th>
+                <th>Pickup Location</th>
+                <th>Province</th>
+                <th>Region</th>
+                <th>Destination</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payment in payments %}
+                <tr>
+                    <td>{{ payment.name }}</td>
+                    <td>${{ payment.amount }}</td>
+                    <td>{{ payment.currency_type }}</td>
+                    <td>{{ payment.status }}</td>
+                    <td>{{ payment.pickup_location }}</td>
+                    <td>{{ payment.province }}</td>
+                    <td>{{ payment.region }}</td>
+                    <td>{{ payment.destination }}</td>
+                    <td>{{ payment.payment_date|date:"F d, Y, g:i a" }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
 </html>

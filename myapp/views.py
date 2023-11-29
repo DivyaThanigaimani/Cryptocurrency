@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from . forms import CreateUserForm, LoginForm
 from django.contrib.auth.decorators import login_required
-
+from .models import Payment
 
 # Subscribe imports
 from .forms import SubscriptionForm
@@ -112,5 +112,8 @@ def glossary_view(request):
     context = {'glossary_terms': glossary_terms}
     return render(request, 'myapp/glossary.html', context)
 
-
+dgitef payment_history(request):
+    payment = Payment.objects.all()
+    context = {'payment': payment}
+    return render(request, 'myapp/dashboard.html', context)
 
