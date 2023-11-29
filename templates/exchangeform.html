@@ -1,0 +1,13 @@
+<!-- exchange_form.html -->
+<form method="post" action="{% url 'exchange_view' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+{% if amount_in_cad %}
+    <p>Equivalent Amount as per the Country: {{ amount_in_cad }}</p>
+    {% if equivalent_amount %}
+        <p>Equivalent Amount: {{ equivalent_amount }}</p>
+    {% endif %}
+{% endif %}

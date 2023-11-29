@@ -11,8 +11,9 @@ from .models import ContactMessage
 # Subscribe imports
 from django.forms.widgets import PasswordInput, TextInput
 from django import forms
+from .models import Subscription
 
-# Glossary imports
+from myapp.models import Country, Province, Region, Location
 from django import forms
 from .models import GlossaryTerm
 
@@ -35,7 +36,20 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(widget=PasswordInput())
 
 
-
+class ExchangeForm(forms.Form):
+    country = forms.ModelChoiceField(queryset=Country.objects.all())
+    province = forms.ModelChoiceField(queryset=Province.objects.all())
+    region = forms.ModelChoiceField(queryset=Region.objects.all())
+    location = forms.ModelChoiceField(queryset=Location.objects.all())
+    enter_amount = forms.DecimalField()
+# Subscribe form
+class SubscriptionForm(forms.ModelForm):
+    class Meta:
+        model = Subscription
+        fields = ['email']
+        widgets = {
+            'email': forms.EmailInput(attrs={'placeholder': 'Enter your email'}),
+        }
 
 
 #Contact Us form
