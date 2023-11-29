@@ -88,17 +88,22 @@ def subscribe(request):
 
 
 
+
 def contact_us(request):
+    success_message = None
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Thank you for your message! We will get back to you soon.')
-            return redirect('landing_page')  # Replace 'landing_page' with the name of your landing page URL pattern
+
+            contact_message = form.save(commit=False)
+            contact_message.save()
+            success_message = "Thank you for contacting us. We'll reach out to you shortly!"
+            form = ContactForm()
     else:
         form = ContactForm()
 
-    return render(request, 'contact_us.html', {'form': form})
+    return render(request, 'contact_us.html', {'form': form, 'success_message': success_message})
 
 
 
