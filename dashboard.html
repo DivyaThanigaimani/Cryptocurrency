@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .avatar-container {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .circular--portrait {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 50px;  /* Adjust the width and height as needed */
+            height: 50px;
+            margin-right: 10px;  /* Adjust the margin as needed */
+        }
+
+        .circular--portrait img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        {% if user.is_authenticated %}
+            <div class="avatar-container">
+                <div class="circular--portrait">
+                    {% if profile_pic %}
+                        <img src="{{ profile_pic.url }}" alt="Profile_Pic">
+                    {% else %}
+                        <!-- You can use a default image or initials for users without a profile picture -->
+                        <img src="{% static 'path/to/default/profile-pic.jpg' %}" alt="Default_Pic">
+                    {% endif %}
+                </div>
+                <h3>Hello {{ user.username }}!</h3>
+            </div>
+            <a href="{% url 'user-logout' %}"> Logout here </a>
+        {% endif %}
+    </div>
+    <h1>This is the Dashboard Page</h1>
+    <!-- Rest of your content goes here -->
+</body>
+</html>
