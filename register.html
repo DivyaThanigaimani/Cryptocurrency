@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .form_container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .register-button {
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form_container">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h2 class="text-center">SIGN UP</h2>
+                <div class="form-field">
+                    <label for="{{ user_form.username.id_for_label }}">Username:</label>
+                    {{ user_form.username }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ user_form.email.id_for_label }}">Email address:</label>
+                    {{ user_form.email }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ user_form.password1.id_for_label }}">Password:</label>
+                    {{ user_form.password1 }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ user_form.password2.id_for_label }}">Password confirmation:</label>
+                    {{ user_form.password2 }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ profile_form.profile_pic.id_for_label }}">Profile pic:</label>
+                    {{ profile_form.profile_pic }}
+                </div>
+                <button type="submit" class="btn btn-primary register-button">SIGN UP</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
