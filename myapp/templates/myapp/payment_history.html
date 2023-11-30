@@ -1,35 +1,37 @@
-{% extends 'myapp/dashboard.html' %}
+{% extends 'register_base.html' %}
 
 {% block content %}
   <h2>Payment History</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Currency</th>
-        <th>Destination</th>
-        <th>Debited</th>
-        <th>Status</th>
-        <th>Exchangement</th>
-        <th>Pickup Location</th>
-        <th>Province</th>
-        <th>Region</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for payment in payment_history_data %}
-        <tr>
-          <td>{{ payment.name }}</td>
-          <td>{{ payment.currency }}</td>
-          <td>{{ payment.destination }}</td>
-          <td>{{ payment.debited }}</td>
-          <td>{{ payment.status }}</td>
-          <td>{{ payment.exchangement }}</td>
-          <td>{{ payment.pickup_location }}</td>
-          <td>{{ payment.province }}</td>
-          <td>{{ payment.region }}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
+
+    <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Country</th>
+              <th>Status</th>
+
+              <th>Province</th>
+              <th>Region</th>
+
+              <th>Date</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for payment in payments %}
+              <tr>
+                  <td>{{ payment.name }}</td>
+                  <td>${{ payment.debited }}</td>
+                  <td>{{ payment.destination }}</td>
+                  <td>{{ payment.status }}</td>
+
+                  <td>{{ payment.province }}</td>
+                  <td>{{ payment.region }}</td>
+
+                  <td>{{ payment.created_at|date:"F d, Y, g:i a" }}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
   </table>
+</body>
 {% endblock %}

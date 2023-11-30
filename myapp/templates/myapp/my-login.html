@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends 'base.html' %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
+   {% block content %}
 <body>
-<nav class="navbar navbar-dark bg-dark">
-            <span class="navbar-brand mb-0 h1 mx-auto"> LOGIN</span>
- </nav>
+
     <div class="container mt-5">
         <form method="POST" autocomplete="off">
             {% csrf_token %}
@@ -21,7 +21,7 @@
                 {{ loginform.password.label_tag }}
                 {{ loginform.password }}
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit"  style="margin-bottom:250px" class="btn btn-primary">Login</button>
         </form>
     </div>
 
@@ -29,4 +29,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+{% endblock %}
 </html>

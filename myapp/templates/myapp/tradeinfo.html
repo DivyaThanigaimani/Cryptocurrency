@@ -1,0 +1,44 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}StockInfo{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{ STOCK_NAME }}</h2>
+            </div>
+            <div class="col-md-6">
+                <label for="currencyDropdown">Select Currency:</label>
+                <select id="currencyDropdown" class="form-control" onchange="location = this.value;">
+                    <option value="" selected>Select Currency</option> <!-- Default option -->
+                    {% for c in currencies|slice:":20" %}
+                        {% if c.code == selected_currency_code %}
+                            <option value="{% url 'convert_currency' amount=CONVERSION_AMOUNT to_currency=c.code from_currency=PREV_CODE %}" selected>{{ c.code }}</option>
+                        {% else %}
+                            <option value="{% url 'convert_currency' amount=CONVERSION_AMOUNT to_currency=c.code from_currency=PREV_CODE %}">{{ c.code }}</option>
+                        {% endif %}
+                    {% empty %}
+                        <option disabled>No currencies available</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <h2>{{ PREV_CODE }}:{{CONVERSION_AMOUNT }}</h2>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{ CHART|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+<button type="button" class="btn btn-primary" onclick="location.href='{% url 'make_payment' stock_name=STOCK_NAME %}'">Buy stock</button>    </div>
+{% endblock %}

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp'
+    'myapp',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -55,8 +56,9 @@ ROOT_URLCONF = 'crypto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,  # Ensure this is set to True
+        'DIRS': [BASE_DIR / 'templates']
+        ,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -67,7 +69,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 WSGI_APPLICATION = 'crypto.wsgi.application'
 
@@ -118,8 +119,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STRIPE_PUBLISHABLE_KEY = "pk_test_51O9rngLOVJhA893O4oiR1K5uz8YB9p7D0zbwXNALPFBOeFuNERBPQRTOnsNEubo1sBCQ70pn1wSgFP7kKKhkOPIz00FFnoF8SM"
+STRIPE_SECRET_KEY ="sk_test_51O9rngLOVJhA893OUCRMwegJppV4vWn2LbiG4WdUUMyOP2H4a8x7LvfqRI9vDgMisdhcX3KkahfJ4gKEISiJ9tAW00gtl4v3jx"
+STRIPE_WEBHOOK_SECRET="whsec_23080ed6fe5f6d28292d55920066ea46dc0b68e892280db645a0c56170c1c656"
+BACKEND_DOMAIN="http://127.0.0.1:8000"
+PAYMENT_SUCCESS_URL="http://127.0.0.1:8000/success"
+PAYMENT_CANCEL_URL="http://127.0.0.1:8000/cancel/"
+

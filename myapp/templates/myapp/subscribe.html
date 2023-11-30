@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+  <div class="container">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form method="post" action="{% url 'subscribe' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+{% endblock %}
+
+</body>
+</html>
